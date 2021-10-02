@@ -2,7 +2,7 @@ package com.example.springsecurityformauthreporecord.dao.repo.entity;
 
 import javax.persistence.*;
 
-@Table(name = "git_repo", schema = "mynotebook")
+@Table(name = "git_repo")
 @Entity
 public class GitRepoDetail {
 

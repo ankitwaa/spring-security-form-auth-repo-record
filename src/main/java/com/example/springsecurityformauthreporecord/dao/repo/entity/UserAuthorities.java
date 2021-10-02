@@ -2,7 +2,7 @@ package com.example.springsecurityformauthreporecord.dao.repo.entity;
 
 import javax.persistence.*;
 
-@Table(name = "authorities", schema = "mynotebook")
+@Table(name = "authorities")
 @Entity
 public class UserAuthorities {
     @Id

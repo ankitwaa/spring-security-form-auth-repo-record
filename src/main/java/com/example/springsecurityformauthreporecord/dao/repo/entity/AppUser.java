@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 
-@Table(name = "users", schema = "mynotebook")
+@Table(name = "users")
 @Entity
 public class AppUser implements UserDetails {
     @Id
@@ -24,13 +24,13 @@ public class AppUser implements UserDetails {
     @Column(name = "enabled")
     private boolean enabled;
     @Column(name = "account_not_expired")
-    private boolean accountNotExpired;
+    private String accountNotExpired;
     @Column(name ="account_not_locked")
-    private boolean accountNotLocked;
-    @Column(name = "credential_not_expired")
-    private boolean credentialNotExpired;
+    private String accountNotLocked;
+    @Column(name = "credentials_not_locked")
+    private String credentialNotExpired;
     @Column(name = "algorithm")
-    private boolean algorithm;
+    private String algorithm;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -39,12 +39,12 @@ public class AppUser implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return username;
     }
 
     @Override
@@ -64,6 +64,6 @@ public class AppUser implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }
