@@ -1,10 +1,11 @@
-package com.example.springsecurityformauthreporecord.dao.repo;
+package com.example.springsecurityformauthreporecord.dao.repo.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class AppUser implements UserDetails {
@@ -17,7 +18,8 @@ public class AppUser implements UserDetails {
     @Column(name = "username")
     private String username;
     @Column(name = "authority")
-    private String authority;
+    @OneToMany(mappedBy = "username", fetch = FetchType.EAGER)
+    private List<UserAuthorities> authority;
     @Column(name = "enabled")
     private boolean enabled;
     @Column(name = "account_not_expired")
@@ -26,6 +28,8 @@ public class AppUser implements UserDetails {
     private boolean accountNotLocked;
     @Column(name = "credential_not_expired")
     private boolean credentialNotExpired;
+    @Column(name = "algorithm")
+    private boolean algorithm;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
