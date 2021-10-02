@@ -1,12 +1,8 @@
 package com.example.springsecurityformauthreporecord.dao.repo.entity;
 
-import org.springframework.security.jackson2.SimpleGrantedAuthorityMixin;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
+@Table(name = "authorities", schema = "mynotebook")
 @Entity
 public class UserAuthorities {
     @Id

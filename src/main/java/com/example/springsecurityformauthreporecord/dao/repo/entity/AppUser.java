@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 
+@Table(name = "users", schema = "mynotebook")
 @Entity
 public class AppUser implements UserDetails {
     @Id

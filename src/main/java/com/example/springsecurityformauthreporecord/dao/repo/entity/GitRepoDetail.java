@@ -2,11 +2,13 @@ package com.example.springsecurityformauthreporecord.dao.repo.entity;
 
 import javax.persistence.*;
 
+@Table(name = "git_repo", schema = "mynotebook")
 @Entity
 public class GitRepoDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private String id;
     @Column(name = "username")
     private String username;
