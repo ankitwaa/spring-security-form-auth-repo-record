@@ -19,7 +19,8 @@ public class CustomWebSecurityConfigurerAdaptor extends WebSecurityConfigurerAda
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin();
+        http.formLogin().defaultSuccessUrl("/main", true);
+        http.csrf().disable();
         http.authorizeRequests().mvcMatchers("**/secure/**").authenticated().and().authorizeRequests()
                 .mvcMatchers("**/public/**").permitAll();
     }
