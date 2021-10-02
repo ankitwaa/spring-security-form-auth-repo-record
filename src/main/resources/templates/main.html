@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Hello My Dear</title>
+    <title>Products</title>
 </head>
 <body>
-
+<h2 th:text="'Hello, ' + ${username} + '!'" />
+<p><a href="/logout">Sign out here</a></p>
+<h2>These are all your git repos:</h2>
+<table>
+    <thead>
+    <tr>
+        <th> Subject </th>
+        <th> Topic </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${products.empty}">
+        <td colspan="2"> No Products Available </td>
+    </tr>
+    <tr th:each="book : ${products}">
+        <td><span th:text="${book.subject}"> Name </span></td>
+        <td><span th:text="${book.topic}"> Price </span></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
